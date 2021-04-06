@@ -30,7 +30,7 @@ app.get("/Services", function (req, res){
     res.send("This is the Services page")
 });
 
-app.get("/Home", function (req, res){
+app.POST("/Home", function (req, res){
     res.send("This is the home page")
 });
 
