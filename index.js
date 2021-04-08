@@ -3,13 +3,19 @@ const express = require("express");
 const app = express();
 const server = http.createServer(app);
 const path = require("path");
+let PORT;
+if (process.env.PORT) {
+    PORT = process.env.PORT
+} else {
+    PORT = 3000;
+}
 
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -65,8 +71,6 @@ app.post("/contact", (req, res) => {
     });
 });
 
-server.listen(3000, function () {
+server.listen(PORT, function () {
     console.log(`app is running`)
 });
-
-
